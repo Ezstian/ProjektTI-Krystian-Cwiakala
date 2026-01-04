@@ -1,51 +1,15 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/logIn.css" />
-    <script src="js/logIn.js"></script>
-    <link rel="shortcut icon" href="img/planeticon.png" type="image/x-icon" />
-    <title>Logowanie</title>
+    <meta charset="utf-8" />
+    <title>Planetarium</title>
+    <style>
+      body {
+        margin: 0;
+      }
+    </style>
   </head>
   <body>
-    <main class="login-container">
-      <section class="left-side"></section>
-      <section class="right-side">
-        <div class="div-form">
-          <header>
-            <h1>Logowanie</h1>
-          </header>
-          <hr />
-          <form action="#" method="post">
-            <label for="username">Nazwa</label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              placeholder="Podaj nazwe"
-              required
-            />
-            <label for="password">Hasło</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Hasło"
-              required
-            />
-            <a href="#" class="fPassword" onclick="PasswordFunction()">
-              Zapomniałeś hasła?</a
-            >
-            <input type="submit" value="Zaloguj" />
-          </form>
-          <div class="icons-gallery">
-            <img src="img/facebook.png" alt="facebook" />
-            <img src="img/github.png" alt="github" />
-            <img src="img/mail.png" alt="mail" />
-          </div>
-        </div>
-      </section>
-    </main>
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>
