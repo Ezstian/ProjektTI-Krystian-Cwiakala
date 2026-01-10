@@ -24,7 +24,6 @@ const titles = [
   "Neptun",
 ];
 const textureLoader = new THREE.TextureLoader();
-
 const leftArrowTexture = textureLoader.load("assets/img/left.png");
 const rightArrowTexture = textureLoader.load("assets/img/right.png");
 
