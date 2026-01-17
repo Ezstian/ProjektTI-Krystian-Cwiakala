@@ -5,9 +5,13 @@
   --bg-card: #0a0a0c;
   --text-main: #ffffff;
   --text-muted: #a0aab5;
-  --accent-blue: #33a1c9;
+  --accent-blue: #001a33;
   --accent-border: rgba(255, 255, 255, 0.1);
   --glass: rgba(255, 255, 255, 0.03);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 html {
@@ -20,64 +24,61 @@ body {
   font-family: "Outfit", sans-serif;
   margin: 0;
   overflow-x: hidden;
+  font-size: 16px;
 }
 
 header {
   position: fixed;
-  top: 30px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   width: auto;
-  z-index: 2;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 300px;
+  padding: 15px 40px;
+  z-index: 100;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 header nav {
-  padding: 10px 30px;
-  transition: padding 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 header nav ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   justify-content: center;
-  gap: 4vw;
-  transition: gap 0.3s ease;
+  gap: 30px;
+  transition: gap 0.6s ease;
 }
 
 header.scrolled {
-  top: 0;
-  width: 100%;
-}
-
-header.scrolled nav {
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  padding: 0 auto;
-
-  border-bottom: 1px solid var(--accent-border);
+  top: 10px;
+  width: 90%;
+  max-width: 1200px;
+  background: rgba(5, 5, 5, 0.8);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 15px 0;
+  border-radius: 50px;
 }
 
 header.scrolled nav ul {
-  gap: 8vw;
-  justify-content: center;
+  gap: 10vw;
 }
 
 header nav ul li a {
   color: var(--text-main);
   text-decoration: none;
-  position: relative;
   font-size: 0.75rem;
   letter-spacing: 2px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  opacity: 0.7;
-}
-
-header nav ul li a:hover {
-  opacity: 1;
-  color: var(--accent-blue);
+  text-transform: uppercase;
+  transition: all 0.3s;
+  white-space: nowrap;
 }
 
 .title {
@@ -92,15 +93,17 @@ header nav ul li a:hover {
     var(--bg-color) 100%
   );
   border-bottom: 1px solid var(--accent-border);
+  padding: 20px;
+  text-align: center;
 }
 
 .title h1 {
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: clamp(4rem, 15vw, 10rem);
+  font-size: clamp(3rem, 12vw, 10rem);
   font-weight: 800;
-  letter-spacing: -5px;
-  line-height: 0.8;
-  margin-bottom: 10px;
+  letter-spacing: -2px;
+  line-height: 1.1;
+  margin-bottom: 20px;
   background: linear-gradient(to bottom, #fff 40%, #444);
   background-clip: text;
   -webkit-background-clip: text;
@@ -108,22 +111,21 @@ header nav ul li a:hover {
 }
 
 .title p {
-  font-size: 0.9rem;
-  letter-spacing: 8px;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  letter-spacing: 5px;
   color: var(--text-muted);
   text-transform: uppercase;
 }
-
 .planet-viewport {
-  height: 200vh;
+  height: 1000vh;
   position: relative;
-  background: var(--bg-color);
   background: radial-gradient(
     circle,
     rgba(99, 99, 107, 1) 1%,
     rgba(0, 50, 100, 1) 0%,
     rgba(0, 0, 0, 1) 100%
   );
+  z-index: 1;
 }
 
 .planet-container {
@@ -135,39 +137,48 @@ header nav ul li a:hover {
   align-items: center;
   position: sticky;
   top: 0;
+  overflow: hidden;
 }
 
 .planet-sphere {
-  width: 45vh;
-  height: 45vh;
+  width: min(45vh, 70vw);
+  height: min(45vh, 70vw);
   border-radius: 50%;
+  background-color: #000;
   background-image: url("/assets/mesh/earthMap.jpg");
   background-size: 200% 100%;
   box-shadow:
     inset -30px -30px 60px rgba(0, 0, 0, 1),
     inset 10px 10px 30px rgba(255, 255, 255, 0.1),
     0 0 80px rgba(51, 161, 201, 0.15);
-  animation: rotatePlanet 30s linear infinite;
+  animation: rotatePlanet 60s linear infinite;
   transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: background-image, box-shadow;
 }
 
 .planet-overlay {
-  margin-top: 40px;
+  margin-top: 5vh;
   text-align: center;
   transition: 0.5s;
+  padding: 0 20px;
+  pointer-events: none;
+  z-index: 2;
 }
 
 .planet-overlay h2 {
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: 3rem;
-  letter-spacing: 10px;
-  margin-bottom: 5px;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: 5px;
+  margin-bottom: 10px;
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
 }
 
 .planet-overlay p {
-  font-size: 0.8rem;
-  color: var(--accent-blue);
-  letter-spacing: 3px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  padding: 5px 15px;
+  letter-spacing: 2px;
+  display: inline-block;
 }
 
 @keyframes rotatePlanet {
@@ -179,49 +190,82 @@ header nav ul li a:hover {
   }
 }
 
+/* Style dla poszczególnych planet (bez zmian logicznych, tylko wizualne) */
+.planet-sphere.mercury {
+  background-image: url("/assets/mesh/mercuryMap.jpg");
+  box-shadow:
+    inset -20px -20px 50px #000,
+    0 0 40px rgba(255, 204, 153, 0.3);
+}
+.planet-sphere.venus {
+  background-image: url("/assets/mesh/venusMap.jpg");
+  box-shadow:
+    inset -20px -20px 50px #000,
+    0 0 40px rgba(255, 77, 77, 0.3);
+}
+.planet-sphere.earth {
+  background-image: url("/assets/mesh/earthMap.jpg");
+  box-shadow:
+    inset -20px -20px 50px #000,
+    0 0 40px rgba(100, 149, 237, 0.3);
+}
 .planet-sphere.mars {
   background-image: url("/assets/mesh/marsMap.jpg");
   box-shadow:
-    inset -30px -30px 60px rgba(0, 0, 0, 1),
-    0 0 80px rgba(255, 77, 77, 0.2);
+    inset -20px -20px 50px #000,
+    0 0 40px rgba(255, 69, 0, 0.3);
 }
-
 .planet-sphere.jupiter {
   background-image: url("/assets/mesh/jupiterMap.jpg");
   box-shadow:
-    inset -30px -30px 60px rgba(0, 0, 0, 1),
-    0 0 80px rgba(255, 204, 153, 0.2);
+    inset -20px -20px 50px #000,
+    0 0 60px rgba(210, 180, 140, 0.3);
 }
-
-.planets-showcase {
-  padding: 100px 10%;
-  background: radial-gradient(circle at center, #0a0a10, var(--bg-color));
+.planet-sphere.saturn {
+  background-image: url("/assets/mesh/saturnMap.jpg");
+  box-shadow:
+    inset -20px -20px 50px #000,
+    0 0 50px rgba(238, 232, 170, 0.3);
+}
+.planet-sphere.uranus {
+  background-image: url("/assets/mesh/uranusMap.jpg");
+  box-shadow:
+    inset -20px -20px 50px #000,
+    0 0 40px rgba(173, 216, 230, 0.3);
+}
+.planet-sphere.neptune {
+  background-image: url("/assets/mesh/neptuneMap.jpg");
+  box-shadow:
+    inset -20px -20px 50px #000,
+    0 0 40px rgba(65, 105, 225, 0.3);
 }
 
 .info {
-  padding: 150px 10%;
+  background: radial-gradient(circle at center, #0a0a10, var(--bg-color));
+  padding: 100px 5%;
   max-width: 1400px;
   margin: 0 auto;
 }
 
 .info h2 {
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: 3rem;
+  font-size: clamp(2rem, 4vw, 3rem);
   text-transform: uppercase;
-  letter-spacing: 5px;
-  margin-bottom: 60px;
+  letter-spacing: 3px;
+  margin-bottom: 40px;
   text-align: center;
 }
 
 .grid-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* Automatyczne dopasowanie: karty nie mniejsze niż 280px */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
 }
 
 .card {
   background: var(--bg-card);
-  padding: 40px;
+  padding: 30px; /* Nieco mniejszy padding wewnętrzny */
   border: 1px solid var(--accent-border);
   transition: 0.4s;
 }
@@ -233,76 +277,42 @@ header nav ul li a:hover {
 }
 
 .card h3 {
-  margin-bottom: 15px;
-  color: var(--accent-blue);
-  letter-spacing: 2px;
+  margin-top: 0;
+  color: var(--text-main);
+  letter-spacing: 1px;
 }
 
 .text-block {
   margin-top: 60px;
   text-align: center;
   color: var(--text-muted);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
 }
 
 .parallax {
-  height: 50vh;
-  background-image: url("parallax.png");
+  height: 30vh;
+  background-image: url("squiggle-bg.jpg");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  border-top: 1px solid var(--accent-border);
-  border-bottom: 1px solid var(--accent-border);
 }
 
-.planet-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
-  padding: 0 10%;
-  margin-bottom: 100px;
+@media (hover: none) {
+  .parallax {
+    background-attachment: scroll;
+  }
 }
 
-.planet-card {
-  background: var(--glass);
-  border: 1px solid var(--accent-border);
-  padding: 50px 30px;
-  text-align: center;
-  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.planet-card:hover {
-  border-color: rgba(255, 255, 255, 0.4);
-  transform: scale(1.05);
-}
-
-.planet-visual {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin: 0 auto 30px;
-  box-shadow: inset -15px -15px 30px rgba(0, 0, 0, 0.8);
-}
-
-.mars-mini {
-  background: radial-gradient(circle at 30% 30%, #ff4d4d, #300);
-}
-.jupiter-mini {
-  background: radial-gradient(circle at 30% 30%, #ffcc99, #321);
-}
-.saturn-mini {
-  background: radial-gradient(circle at 30% 30%, #e6e6a1, #221);
-}
-
-.coord {
-  display: block;
-  font-size: 0.7rem;
-  color: var(--accent-blue);
-  margin-bottom: 15px;
-  letter-spacing: 2px;
+.planets-showcase {
+  padding: 80px 5%;
+  background: radial-gradient(circle at center, #0a0a10, var(--bg-color));
 }
 
 footer {
-  padding: 50px;
+  padding: 30px 20px;
   text-align: center;
   border-top: 1px solid var(--accent-border);
   color: var(--text-muted);
@@ -311,16 +321,57 @@ footer {
 
 @media (max-width: 768px) {
   header {
-    width: 90%;
+    width: 95%;
+    padding: 15px 20px;
+    min-width: auto;
   }
+
+  header.scrolled {
+    width: 95%;
+    border-radius: 15px;
+  }
+
+  header.scrolled nav ul {
+    gap: 20px;
+  }
+
+  header nav ul li a {
+    font-size: 0.7rem;
+  }
+
+  .title h1 {
+    letter-spacing: -1px;
+  }
+
+  .title p {
+    letter-spacing: 3px;
+  }
+  .planet-sphere {
+    width: 60vw;
+    height: 60vw;
+    max-width: 300px;
+    max-height: 300px;
+  }
+
+  .planet-overlay h2 {
+    font-size: 2rem;
+    letter-spacing: 3px;
+  }
+
+  .info {
+    padding: 60px 20px;
+  }
+
+  .grid-list {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 380px) {
   header nav ul {
     gap: 15px;
   }
-  .title h1 {
-    letter-spacing: -2px;
-  }
-  .planet-sphere {
-    width: 30vh;
-    height: 30vh;
+  header nav ul li a {
+    font-size: 0.6rem;
   }
 }
