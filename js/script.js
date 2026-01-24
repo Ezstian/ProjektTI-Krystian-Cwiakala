@@ -6,8 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const overlay = document.querySelector(".planet-overlay");
   const viewportSection = document.querySelector(".planet-viewport");
 
-  // NAPRAWA: Dane są teraz tutaj, zamiast w pliku zewnętrznym.
-  // Dzięki temu nie ma błędu "Failed to load resource: 404".
   const planetsData = [
     {
       name: "MERKURY",
