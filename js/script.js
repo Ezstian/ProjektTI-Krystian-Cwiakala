@@ -5,21 +5,53 @@ document.addEventListener("DOMContentLoaded", () => {
   const dataLabel = document.getElementById("planet-data");
   const overlay = document.querySelector(".planet-overlay");
   const viewportSection = document.querySelector(".planet-viewport");
-  let planetsData = [];
+
+  // NAPRAWA: Dane są teraz tutaj, zamiast w pliku zewnętrznym.
+  // Dzięki temu nie ma błędu "Failed to load resource: 404".
+  const planetsData = [
+    {
+      name: "MERKURY",
+      details: "DYSTANS: 58 MLN KM | TYP: SKALISTA",
+      cssClass: "mercury",
+    },
+    {
+      name: "WENUS",
+      details: "DYSTANS: 108 MLN KM | TYP: SKALISTA",
+      cssClass: "venus",
+    },
+    {
+      name: "ZIEMIA",
+      details: "DYSTANS: 150 MLN KM | STATUS: ZAMIESZKANA",
+      cssClass: "earth",
+    },
+    {
+      name: "MARS",
+      details: "DYSTANS: 228 MLN KM | TYP: SKALISTA",
+      cssClass: "mars",
+    },
+    {
+      name: "JOWISZ",
+      details: "DYSTANS: 778 MLN KM | TYP: GAZOWY GIGANT",
+      cssClass: "jupiter",
+    },
+    {
+      name: "SATURN",
+      details: "DYSTANS: 1.4 MLD KM | TYP: GAZOWY GIGANT",
+      cssClass: "saturn",
+    },
+    {
+      name: "URAN",
+      details: "DYSTANS: 2.9 MLD KM | TYP: LODOWY GIGANT",
+      cssClass: "uranus",
+    },
+    {
+      name: "NEPTUN",
+      details: "DYSTANS: 4.5 MLD KM | TYP: LODOWY GIGANT",
+      cssClass: "neptune",
+    },
+  ];
+
   let currentPlanetIndex = -1;
-  fetch("planety.json")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Błąd sieci: " + response.statusText);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      planetsData = data;
-    })
-    .catch((error) => {
-      console.error("Nie udało się załadować pliku JSON:", error);
-    });
 
   const updatePlanetInfo = (index) => {
     if (planetsData.length === 0) return;
