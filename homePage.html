@@ -1,24 +1,29 @@
 <!doctype html>
-<html lang="en">
+<html lang="pl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ZENIT | Interaktywne Planetarium</title>
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="shortcut icon"
+      href="assets/img/planeticon.png"
+      type="image/x-icon"
+    />
   </head>
   <body>
     <header>
       <nav>
         <ul>
           <li><a href="#home">HOME</a></li>
-          <li><a href="#explore">EKSPLORACJA</a></li>
-          <li><a href="#services">USŁUGI</a></li>
+          <li><a href="#age-calculator">KALKULATOR</a></li>
+          <li><a href="#uslugi">USŁUGI</a></li>
         </ul>
       </nav>
     </header>
 
     <main>
-      <section id="home" class="title">
+      <section id="home" class="title section">
         <h1>ZENIT</h1>
         <p>Interaktywne Planetarium</p>
       </section>
@@ -28,79 +33,65 @@
           <div id="planet3d" class="planet-sphere"></div>
           <div class="planet-overlay">
             <h2 id="planet-name">ZIEMIA</h2>
-            <p id="planet-data">DYSTANS: 0 KM | STATUS: ZAMIESZKANA</p>
+            <p id="planet-data">DYSTANS: 150 MLN KM | STATUS: ZAMIESZKANA</p>
           </div>
         </div>
       </div>
 
       <div class="parallax"></div>
 
-      <section id="explore" class="info">
-        <div class="container">
-          <h2>Eksploracja</h2>
-          <div class="grid-list">
-            <div class="card">
-              <h3>Symulatory Lotu</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos
-                nobis repudiandae quo maiores corporis, in officia consequatur,
-                eligendi natus sapiente rerum. Quod earum itaque ab nulla? Quo
-                ducimus magni mollitia.
-              </p>
-            </div>
-            <div class="card">
-              <h3>Kino Sferyczne</h3>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Laudantium consequatur error eveniet cum sunt. Cupiditate,
-                tenetur. Doloribus nemo eligendi expedita omnis odit molestiae
-                voluptatum consequuntur ad, cumque iusto? Hic, qui!
-              </p>
-            </div>
-            <div class="card">
-              <h3>Nocne Obserwacje</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis
-                nesciunt consequatur, natus cum aliquid eligendi tempore unde
-                temporibus asperiores porro, enim labore doloremque officia
-                ipsum sapiente et recusandae, at error!
-              </p>
-            </div>
+      <section id="age-calculator" class="section">
+        <div class="feature-box">
+          <h1>Twój wiek w kosmosie</h1>
+          <p>Sprawdź, ile miałbyś lat na innych planetach.</p>
+
+          <div class="calc-container">
+            <input
+              type="number"
+              id="earthAge"
+              placeholder="Twój wiek"
+              min="1"
+              max="100"
+            />
+            <button class="button" onclick="obliczWiek()">Sprawdź</button>
           </div>
+
+          <ul id="age-results" class="results-list">
+            <li>Merkury (Rok = 88 dni): <span id="age-mercury">0</span> lat</li>
+            <li>Wenus (Rok = 225 dni): <span id="age-venus">0</span> lat</li>
+            <li>Mars (Rok = 687 dni): <span id="age-mars"> 0</span> lat</li>
+            <li>Jowisz (Rok = 12 lat): <span id="age-jupiter"> 0</span> lat</li>
+            <li>Neptun (Rok = 165 lat): <span id="age-neptune">0</span> lat</li>
+          </ul>
         </div>
       </section>
 
       <div class="parallax"></div>
 
-      <section id="planets" class="planets-showcase">
-        <div class="info">
-          <h2>Eksploruj Układ</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
-            aspernatur, eligendi repudiandae adipisci dolorum aperiam ipsam.
-            Placeat beatae esse cum nobis nisi veniam ut quasi laboriosam,
-            deleniti inventore earum? Consequuntur.
-          </p>
+      <section id="ciekawostka" class="section">
+        <div class="feature-box">
+          <h1>Kosmiczna ciekawostka</h1>
+          <div>
+            <p id="fact-display">
+              Kliknij przycisk poniżej, aby odkryć tajemnicę...
+            </p>
+          </div>
+          <button class="button" onclick="losujCiekawostke()">
+            Wylosuj nową
+          </button>
         </div>
       </section>
 
       <div class="parallax"></div>
 
-      <section id="services" class="info">
-        <div class="container">
-          <h2>Nasze usługi</h2>
+      <section id="uslugi" class="section">
+        <div class="feature-box">
+          <h1>Nasze usługi</h1>
           <div class="grid-list">
             <div class="card">Pokazy astronomiczne na żywo</div>
             <div class="card">Interaktywne wystawy i warsztaty</div>
             <div class="card">Specjalne wydarzenia tematyczne</div>
             <div class="card">Programy edukacyjne dla szkół</div>
-          </div>
-          <div class="text-block">
-            <p>
-              Odkryj tajemnice wszechświata dzięki naszym zaawansowanym systemom
-              projekcyjnym. Każda wizyta w ZENIT to podróż przez czas i
-              przestrzeń, która inspiruje kolejne pokolenia odkrywców.
-            </p>
           </div>
         </div>
       </section>
@@ -110,6 +101,6 @@
       <p>&copy; 2026 ZENIT Planetarium. Wszystkie prawa zastrzeżone.</p>
     </footer>
 
-    <script src="/js/script.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>

@@ -2,49 +2,49 @@
   {
     "id": "mercury",
     "name": "MERKURY",
-    "details": "DYSTANS: 58M KM | STATUS: SKALISTY",
+    "details": "DYSTANS: 58 MLN KM | STATUS: PLANETA SKALISTA",
     "cssClass": "mercury"
   },
   {
     "id": "venus",
     "name": "WENUS",
-    "details": "DYSTANS: 108M KM | STATUS: GORĄCY",
+    "details": "DYSTANS: 108 MLN KM | STATUS: PLANETA SKALISTA",
     "cssClass": "venus"
   },
   {
     "id": "earth",
     "name": "ZIEMIA",
-    "details": "DYSTANS: 149M KM | STATUS: ZAMIESZKANA",
+    "details": "DYSTANS: 150 MLN KM (OD SŁOŃCA) | STATUS: ZAMIESZKANA",
     "cssClass": "earth"
   },
   {
     "id": "mars",
     "name": "MARS",
-    "details": "DYSTANS: 225M KM | STATUS: JAŁOWA",
+    "details": "DYSTANS: 228 MLN KM | STATUS: PLANETA SKALISTA",
     "cssClass": "mars"
   },
   {
     "id": "jupiter",
     "name": "JOWISZ",
-    "details": "DYSTANS: 778M KM | STATUS: GAZOWY GIGANT",
+    "details": "DYSTANS: 778 MLN KM | STATUS: GAZOWY OLBRZYM",
     "cssClass": "jupiter"
   },
   {
     "id": "saturn",
     "name": "SATURN",
-    "details": "DYSTANS: 1.4B KM | STATUS: GAZOWY GIGANT",
+    "details": "DYSTANS: 1.4 MLD KM | STATUS: GAZOWY OLBRZYM",
     "cssClass": "saturn"
   },
   {
     "id": "uranus",
     "name": "URAN",
-    "details": "DYSTANS: 2.9B KM | STATUS: LODOWY GIGANT",
+    "details": "DYSTANS: 2.9 MLD KM | STATUS: LODOWY OLBRZYM",
     "cssClass": "uranus"
   },
   {
     "id": "neptune",
     "name": "NEPTUN",
-    "details": "DYSTANS: 4.5B KM | STATUS: LODOWY GIGANT",
+    "details": "DYSTANS: 4.5 MLD KM | STATUS: LODOWY OLBRZYM",
     "cssClass": "neptune"
   }
 ]

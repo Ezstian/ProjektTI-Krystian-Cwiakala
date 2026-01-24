@@ -1,10 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap");
+
+:root {
+  --bg-color: #030303;
+  --bg-card: #0a0a0c;
+  --text-main: #ffffff;
+  --text-muted: #a0aab5;
+  --accent-blue: #001a33;
+  --accent-border: rgba(255, 255, 255, 0.1);
+  --glass: rgba(255, 255, 255, 0.03);
+}
+
 body,
 html {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
-  font-family: sans-serif;
+  font-family: "Outfit", sans-serif;
 }
 
 .login-container {
@@ -48,7 +60,7 @@ html {
   position: absolute;
   top: -50%;
   left: -50%;
-  width: 200%;
+  width: 220%;
   height: 200%;
   background: conic-gradient(transparent, #00aaff, #0044ff, transparent 30%);
   animation: rotateBorder 4s linear infinite;
@@ -106,7 +118,7 @@ label {
 }
 .right-side input[type="text"],
 .right-side input[type="password"] {
-  font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+  font-size: clamp(0.875rem, 1vw, 0.5rem);
   padding: 12px;
   width: 80%;
   border: 1px solid #ccc;
@@ -118,10 +130,10 @@ label {
 .right-side input[type="password"]:focus {
   border-color: #0044ff;
 }
-.right-side input[type="submit"] {
+.right-side button[type="button"] {
   position: relative;
   z-index: 2;
-  font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+  font-size: clamp(0.875rem, 1vw, 0.8rem);
   padding: 12px;
   width: 80%;
   cursor: pointer;
@@ -132,7 +144,7 @@ label {
   margin-top: 10px;
 }
 
-.right-side input[type="submit"]:hover {
+.right-side button[type="button"]:hover {
   opacity: 0.9;
 }
 .fPassword {
