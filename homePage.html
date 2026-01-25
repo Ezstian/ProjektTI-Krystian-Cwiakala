@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ZENIT | Interaktywne Planetarium</title>
     <meta
       name="description"
       content="Odkryj tajemnice Układu Słonecznego z ZENIT. Interaktywne planetarium 3D, ciekawostki astronomiczne i kalkulator wieku na innych planetach."
     />
+    <title>ZENIT | Interaktywne Planetarium</title>
+
     <link rel="stylesheet" href="css/style.css" />
     <link
       rel="shortcut icon"
@@ -16,92 +17,119 @@
     />
   </head>
   <body>
-    <header>
-      <nav>
-        <ul>
-          <li><a href="#home">HOME</a></li>
-          <li><a href="#age-calculator">KALKULATOR</a></li>
-          <li><a href="#uslugi">USŁUGI</a></li>
+    <header class="main-header">
+      <nav class="navbar">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#age-calculator" class="nav-link">Kalkulator</a></li>
+          <li><a href="#services" class="nav-link">Usługi</a></li>
         </ul>
       </nav>
     </header>
 
     <main>
-      <section id="home" class="titleSection">
-        <h1>ZENIT</h1>
-        <p>Interaktywne Planetarium</p>
+      <section id="home" class="hero-section">
+        <h1 class="hero-title">ZENIT</h1>
+        <p class="hero-subtitle">Interaktywne Planetarium</p>
       </section>
 
-      <div class="planet-viewport">
+      <article class="planet-viewer">
         <div class="planet-container">
-          <div id="planet3d" class="planet-sphere"></div>
-          <div class="planet-overlay">
-            <h2 id="planet-name">ZIEMIA</h2>
-            <a id="planet-data">DYSTANS: 150 MLN KM | STATUS: ZAMIESZKANA</a>
+          <div
+            id="planet3d"
+            class="planet-sphere"
+            aria-label="Interaktywny model 3D planety"
+          ></div>
+          <div class="planet-info-overlay">
+            <h2 id="planet-name">Ziemia</h2>
+            <p id="planet-details" class="planet-stats">
+              Dystans: 150 mln km | Status: Zamieszkana
+            </p>
           </div>
         </div>
-      </div>
+      </article>
 
-      <div class="parallax"></div>
+      <div class="parallax-divider" aria-hidden="true"></div>
 
-      <section id="age-calculator" class="section">
-        <div class="feature-box">
-          <h1>Twój wiek w kosmosie</h1>
-          <p>Sprawdź, ile miałbyś lat na innych planetach.</p>
+      <section id="age-calculator" class="content-section">
+        <div class="card-container">
+          <h2 class="section-title">Twój wiek w kosmosie</h2>
+          <p class="section-description">
+            Sprawdź, ile miałbyś lat na innych planetach.
+          </p>
 
-          <div class="calc-container">
-            <input
-              type="number"
-              id="earthAge"
-              placeholder="Twój wiek"
-              min="1"
-              max="100"
-            />
-            <button class="button" onclick="obliczWiek()">Sprawdź</button>
-          </div>
+          <form class="calculator-form" onsubmit="event.preventDefault()">
+            <div class="input-group">
+              <label for="earthAge">Wpisz swój wiek:</label>
+              <input
+                type="number"
+                id="earthAge"
+                class="age-input"
+                placeholder="np. 25"
+                min="1"
+                max="120"
+                required
+              />
+              <button type="button" class="btn-primary" onclick="obliczWiek()">
+                Sprawdź
+              </button>
+            </div>
+          </form>
 
           <ul id="age-results" class="results-list">
-            <li>Merkury (Rok = 88 dni): <span id="age-mercury">0</span> lat</li>
-            <li>Wenus (Rok = 225 dni): <span id="age-venus">0</span> lat</li>
-            <li>Mars (Rok = 687 dni): <span id="age-mars"> 0</span> lat</li>
-            <li>Jowisz (Rok = 12 lat): <span id="age-jupiter"> 0</span> lat</li>
-            <li>Neptun (Rok = 165 lat): <span id="age-neptune">0</span> lat</li>
+            <li>
+              <strong>Merkury:</strong> <span id="age-mercury">0</span> lat
+            </li>
+            <li><strong>Wenus:</strong> <span id="age-venus">0</span> lat</li>
+            <li><strong>Mars:</strong> <span id="age-mars">0</span> lat</li>
+            <li>
+              <strong>Jowisz:</strong> <span id="age-jupiter">0</span> lat
+            </li>
+            <li>
+              <strong>Neptun:</strong> <span id="age-neptune">0</span> lat
+            </li>
           </ul>
         </div>
       </section>
 
-      <div class="parallax"></div>
+      <div class="parallax-divider" aria-hidden="true"></div>
 
-      <section id="ciekawostka" class="section">
-        <div class="feature-box">
-          <h1>Kosmiczna ciekawostka</h1>
-          <div>
+      <section id="trivia" class="content-section">
+        <div class="card-container">
+          <h2 class="section-title">Kosmiczna ciekawostka</h2>
+          <blockquote class="fact-box">
             <p id="fact-display">
               Kliknij przycisk poniżej, aby odkryć tajemnicę...
             </p>
-          </div>
-          <button class="button" onclick="losujCiekawostke()">
+          </blockquote>
+          <button class="btn-secondary" onclick="losujCiekawostke()">
             Wylosuj nową
           </button>
         </div>
       </section>
 
-      <div class="parallax"></div>
+      <div class="parallax-divider" aria-hidden="true"></div>
 
-      <section id="uslugi" class="section">
-        <div class="feature-box">
-          <h1>Nasze usługi</h1>
-          <div class="grid-list">
-            <div class="card">Pokazy astronomiczne na żywo</div>
-            <div class="card">Interaktywne wystawy i warsztaty</div>
-            <div class="card">Specjalne wydarzenia tematyczne</div>
-            <div class="card">Programy edukacyjne dla szkół</div>
+      <section id="services" class="content-section">
+        <div class="card-container">
+          <h2 class="section-title">Nasze usługi</h2>
+          <div class="services-grid">
+            <article class="service-card">Pokazy astronomiczne na żywo</article>
+            <article class="service-card">
+              Interaktywne wystawy i warsztaty
+            </article>
+            <article class="service-card">
+              Specjalne wydarzenia tematyczne
+            </article>
+            <article class="service-card">
+              Programy edukacyjne dla szkół
+            </article>
           </div>
         </div>
       </section>
     </main>
 
-    <footer>
+    <footer class="main-footer">
       <p>&copy; 2026 ZENIT Planetarium. Wszystkie prawa zastrzeżone.</p>
     </footer>
 
