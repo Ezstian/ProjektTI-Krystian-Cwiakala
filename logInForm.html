@@ -13,10 +13,10 @@
     <title>ZENIT | Logowanie</title>
   </head>
   <body>
-    <main class="login-container">
-      <section class="left-side"><p>Z E N I T</p></section>
+    <main class="login-page">
+      <section class="left-side"></section>
       <section class="right-side">
-        <div class="div-form">
+        <div class="login-form">
           <header>
             <h1>Logowanie</h1>
           </header>
@@ -41,16 +41,31 @@
             <a href="#" class="fPassword" onclick="PasswordFunction()">
               Zapomniałeś hasła?</a
             >
-            <button type="button" value="Zaloguj" onclick="logIn()">
-              Zaloguj
-            </button>
+            <button type="button" onclick="logIn()">Zaloguj</button>
           </form>
-          <div class="icons-gallery">
-            <img src="assets/img/facebook.png" alt="facebook" />
-            <a href="https://github.com/Ezstian/ProjektTI-Krystian-Cwiakala">
-              <img src="assets/img/github.png" alt="github" />
+          <div class="social-gallery">
+            <a href="https://facebook.com" target="_blank">
+              <img
+                src="assets/img/facebook.png"
+                alt="Facebook"
+                class="social-icon"
+              />
             </a>
-            <img src="assets/img/mail.png" alt="mail" />
+
+            <a
+              href="https://github.com/Ezstian/ProjektTI-Krystian-Cwiakala"
+              target="_blank"
+            >
+              <img
+                src="assets/img/github.png"
+                alt="GitHub"
+                class="social-icon"
+              />
+            </a>
+
+            <a href="mailto:kc135047@stud.ur.edu.pl">
+              <img src="assets/img/mail.png" alt="Email" class="social-icon" />
+            </a>
           </div>
         </div>
       </section>
