@@ -369,7 +369,7 @@ body {
 .parallax-divider {
   position: relative;
   height: 30vh;
-  background-image: url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=2111&auto=format&fit=crop");
+  background-image: url("../assets/img/parallax.jpg");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
